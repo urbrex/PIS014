@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>PIS
+	</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&amp;subset=latin-ext" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Registrácia</h1>
+		<form action="registrate" method="POST">
+			
+			<div class="part">
+				<label for="firstName">Meno</label>
+				<input type="text" id="firstName" name="firstName" placeholder="Vaše meno">
+			</div>
+
+			<div class="part">
+				<label for="lastName">Priezvisko</label>
+				<input type="text" id="lastName" name="lastName" placeholder="Vaše priezvisko">
+			</div>
+
+			<div class="part">
+				<label for="nickName">Prezývka</label>
+				<input type="text" id="nickName" name="nickName" placeholder="Vaša prezývka">
+			</div>
+
+			<div class="part">
+				<label for="email">Email</label>
+				<input type="text" id="email" name="email" placeholder="Váš email">
+			</div>
+
+			<div class="part">
+				<label for="narodnost">Národnosť</label>
+				<input type="text" id="narodnost" name="narodnost" placeholder="Vaša národnosť">
+			</div>
+
+			<div class="part">
+				<label for="birth" >Dátum<i class="far fa-calendar-alt"></i></label>
+				<input type="date" id="birth" name="birth">
+			</div>
+
+			<div class="part">
+				<label for="pohlavie">Pohlavie</label>
+				<select name="pohlavie" id="pohlavie">
+					  <option value="1">Muž</option>
+					  <option value="2">Žena</option>
+				</select>
+			</div>
+
+			<input type="submit" class="button-ok" value="Ok" id="search-button"class="button btn-form">
+			
+		</form>
+
+	</div>
+	
+	
+</body>
+</html>
