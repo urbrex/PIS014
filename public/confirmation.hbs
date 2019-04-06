@@ -13,51 +13,38 @@
 <body>
 	<div class="wrapper">
 		<h1>Potvrdenie registrácie</h1>
-		<ul class="table">
-			<li>
-				<div class="column">
-					<p class="label">ID</p>
-					<p class="value">{{id}}</p>
-				</div>
-			</li>
-			<li>
-					<div class="column">
-						<p class="label">Meno</p>
-						<p class="value">{{firstName}}</p>
-					</div>
-			</li>
-			<li>
-					<div class="column">
-						<p class="label">Priezvisko</p>
-						<p class="value">{{lastName}}</p>
-					</div>
-			</li>
-			<li>
-					<div class="column">
-						<p class="label">Nick</p>
-						<p class="value">{{nickName}}</p>
-					</div>
-			</li>
-			<li>
-					<div class="column">
-						<p class="label">Email</p>
-						<p class="value">{{email}}</p>
-					</div>
-			</li>
-			<li>
-					<div class="column">
-						<p class="label">Datum narodenia</p>
-						<p class="value">{{birth}}</p>
-					</div>
-			</li>
-		</ul>
 		<form action="registrate/{{id}}" method="POST">
+			<table style="width:100%">
+				<tr>
+					<th>ID</th>
+					<th>Meno</th>
+					<th>Priezvisko</th>
+					<th>Prezývka</th>
+					<th>Email</th>
+					<th>Datum narodenia</th>
+					<th>Narodnost</th>
+					<th>Pohlavie</th>
+					<th>Potvrdenie</th>
+				</tr>
+				<tr>
+					<td>{{id}}</td>
+					<td>{{firstName}}</td>
+					<td>{{lastName}}</td>
+					<td>{{nickName}}</td>
+					<td>{{email}}</td>
+					<td>{{birth}}</td>
+					<td>{{narodnost}}</td>
+					<td>{{pohlavie}}</td>
+					<td><input type="checkbox" name="confirmed" id="confirmed"></td>
+				</tr>
+			</table> 
 
-			<div class="part">
-				
+
+
+			{{!-- <div class="part">
 				<input type="checkbox" name="confirmed" id="confirmed">
 				<label for="confirmed" id="check">Potvrdenie</label>
-			</div>
+			</div> --}}
 
 			<input type="submit" class="button-ok" value="Ok" id="search-button"class="button btn-form">
 			

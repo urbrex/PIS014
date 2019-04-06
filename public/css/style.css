@@ -135,3 +135,31 @@ p {
 	display: inline-block;
 }
 
+table {
+	border: 2px solid #777;
+	border-radius: 5px;
+}
+
+th {
+	color: #777;
+	border: 2px solid #777;
+}
+
+th:first-child {
+	border-top-left-radius: 5px;
+}
+
+th:last-child {
+	border-top-right-radius: 5px;
+}
+
+
+/* table, th, td {
+  border: 2px solid black;
+} */
+
+td {
+	border: 2px solid #777;
+	text-align: center;
+}
+
