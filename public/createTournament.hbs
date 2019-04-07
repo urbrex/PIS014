@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>PIS
+	</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&amp;subset=latin-ext" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Vytvorenie turnaja</h1>
+		<form action="/tournament/create" method="POST">
+
+			<a href="/tournament/listOld" class="button" id="button-old">Podla stareho turnaja <i class="fas fa-arrow-right"></i></a>
+			
+			<div class="part">
+				<label for="name">Názov</label>
+				<input type="text" id="name" name="name" placeholder="Názov" value="{{tournament.name}}">
+			</div>
+
+			<div class="part">
+				<label for="date" >Dátum<i class="far fa-calendar-alt"></i></label>
+				<input type="date" id="date" name="date">
+			</div>
+
+			<div class="part">
+				<label for="miesto">Miesto</label>
+				<input type="text" id="miesto" name="miesto" placeholder="Miesto" value="{{tournament.miesto}}">
+			</div>
+
+			<div class="part">
+				<label for="maxC">Maximálna kapacita</label>
+				<input type="text" id="maxC" name="maxC" placeholder="Maximálna kapacita" value="{{tournament.maxC}}">
+			</div>
+
+			<div class="part">
+				<label for="minC">Minimálna kapacita</label>
+				<input type="text" id="minC" name="minC" placeholder="Minimálna kapacita" value="{{tournament.minC}}">
+			</div>
+
+			<div class="part">
+				<label for="parovanie">Párovanie</label>
+				<select name="parovanie" id="parovanie">
+					  <option value="svajciarsky">Švajčiarsky</option>
+					  <option value="roundRobin">Round robin</option>
+					  <option value="pavuk">Pavúk</option>
+				</select>
+			</div>
+
+			<div class="part">
+				<label for="date1">Dátum zverejnenia<i class="far fa-calendar-alt"></i></label>
+				<input type="date" id="date1" name="date1">
+			</div>
+
+
+			<input type="submit" class="button-ok" value="Ok" id="search-button"class="button btn-form">
+			
+		</form>
+
+	</div>
+	
+	
+</body>
+</html>

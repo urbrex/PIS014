@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const hbs = require('hbs');
 
-const {elo, match, organizatorslist,Player,playerslist,roundslist,sport,tournament} = require('../models/index.js');
+const {Elo, Match, OrganizatorsList,Player,Playerslist,Roundslist,Sport,Tournament} = require('../models/index.js');
 
 
 const publicPath = path.join(__dirname, '../public' );
@@ -23,6 +23,8 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
+
+//BP01
 app.get('/registrate', (req, res) => {
 	res.render('registrate');
 });
@@ -59,22 +61,84 @@ app.post('/registrate/:id', (req, res) => {
 	console.log(req.body);
 });
 
-app.get('/registrate', (req, res) => {
-  res.send('Hello World!');
+//BP02
+
+//BP03
+app.get('/tournament/create', (req, res) => {
+	res.render('createTournament');
 });
 
-app.get('/registrate', (req, res) => {
-  res.send('Hello World!');
+app.get('/tournament/create/:id', (req, res) => {
+	Tournament.findByPk(req.params.id)
+	.then(tournament => {
+		console.log('tournament: ',tournament.dataValues)
+		res.render('createTournament',{"tournament": tournament.dataValues});
+	})
 });
 
-app.get('/registrate', (req, res) => {
-  res.send('Hello World!');
+app.post('/tournament/create', (req, res) => {
+	Tournament.create(req.body)
+	.then(tournament => {
+		return OrganizatorsList.create({
+			"playerId": 1,
+			"tournamentId": tournament.dataValues.id
+		})
+	})
+	.then(result => {
+		res.redirect('http://localhost:3000/')
+	})
+	
+});
+
+app.get('/tournament/listOld', (req, res) => {
+	Player.findAll({
+		where: {
+	  		id: 1
+			},
+	    include: [{model: Tournament, as:'tournaments'}]
+	})
+	.then((player) => {
+		let tournaments = [];
+		getAllTournaments(player[0].tournaments, tournaments)
+		console.log('Render');
+		res.render('listOld', {tournaments: tournaments});
+	})
+	.catch(error => {
+		console.log(error)
+	})
 });
 
 server.listen(port, () => {
 	console.log(`App je na porte ${port}`);
 });
 
+//BP04
+
+
+
+//BP05
+//
+
+
+
+
+//funkcie
+const getAllTournaments = (object, array) => {
+	object.forEach((item) => {
+	  let obj = {
+	  	"id": item.dataValues.id,
+	  	"name": item.dataValues.name,
+	  	"date": item.dataValues.date,
+	  	"miesto": item.dataValues.miesto,
+	  	"maxC": item.dataValues.maxC,
+	  	"minC": item.dataValues.minC,
+	  	"parovanie": item.dataValues.parovanie,
+	  	"sukromny": item.dataValues.sukromny,
+	  	"date1": item.dataValues.date1
+	  }
+	  array.push(obj);
+	})
+}
 
 
 

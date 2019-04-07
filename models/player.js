@@ -11,7 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     pohlavie: DataTypes.STRING
   }, {});
   Player.associate = function(models) {
-    // associations can be defined here
+    Player.belongsToMany(models.Tournament, {
+      as: "tournaments",
+      through: 'OrganizatorsList', 
+      foreignKey: 'playerId'
+    });
   };
   return Player;
 };
